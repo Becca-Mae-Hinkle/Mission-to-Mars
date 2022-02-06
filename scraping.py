@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
 
 # Import Splinter and BeautifulSoup
 from splinter import Browser
@@ -15,6 +13,7 @@ url = 'https://redplanetscience.com'
 browser.visit(url)
 # Optional delay for loading the page
 browser.is_element_present_by_css('div.list_text', wait_time=1)
+
 
 html = browser.html
 news_soup = soup(html, 'html.parser')
@@ -41,6 +40,7 @@ browser.visit(url)
 full_image_elem = browser.find_by_tag('button')[1]
 full_image_elem.click()
 
+
 # Parse the resulting html with soup
 html = browser.html
 img_soup = soup(html, 'html.parser')
@@ -52,6 +52,7 @@ img_url_rel
 # Use the base URL to create an absolute URL
 img_url = f'https://spaceimages-mars.com/{img_url_rel}'
 img_url
+
 
 df = pd.read_html('https://galaxyfacts-mars.com')[0]
 df.columns=['description', 'Mars', 'Earth']
